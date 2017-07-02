@@ -28,9 +28,6 @@ vim /home/ec2-user/.ssh/authorized_keys
 -connect from the master to master and the nodes with the internal dns name
 ssh -i /home/ec2-user/id_rsa ec2-user@"internal dns name"
 
--create the directory structure in the directory /ansible
-mkdir group_vars host_vars roles library filter_plugins
-
 -create the ansible inventory file
 vim /ansible/amazon.inv
 [master]
@@ -49,3 +46,5 @@ vim /ansible/amazon.inv
     - yum: name=git state=present
 
 ansible-playbook -i amazon.inv installgit.yml
+
+-clone the git to your amazone master machine
