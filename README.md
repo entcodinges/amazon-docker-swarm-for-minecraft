@@ -43,5 +43,3 @@ ansible-playbook -i amazon.inv installgit.yml
 
 -clone the git to your amazone master machine
 
--clone the git from https://github.com/avinetworks/ansible-role-docker into directory /ansible/amazon-docker-swarm-for-minecraft/roles
-
