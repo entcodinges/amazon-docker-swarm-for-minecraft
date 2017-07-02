@@ -38,7 +38,7 @@ vim /ansible/amazon.inv
 "node internal name"
 ```
 
--create ansible playbook for install git from the file installgit.yml ind /ansible
+-create ansible playbook for install git from the file installgit.yml and saved /ansible
 ansible-playbook -i amazon.inv installgit.yml
 
 -clone the git to your amazone master machine
