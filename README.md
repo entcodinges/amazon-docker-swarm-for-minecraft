@@ -22,11 +22,14 @@ ssh-keygen
 -copy the content of the id_rsa.pub into the clipboard
 less /home/ec2-user/.ssh/id_rsa.pub
 
--connect to the nodeservers with the amazon pem file and add the public key to the authorized key file
+-connect to master and the nodeservers with the amazon pem file and add the public key to the authorized key file
 vim /home/ec2-user/.ssh/authorized_keys
 
--connect from the master to the node with the internal dns name
+-connect from the master to master and the nodes with the internal dns name
 ssh -i /home/ec2-user/id_rsa ec2-user@"internal dns name"
+
+-create the directory structure in the directory /ansible
+mkdir group_vars host_vars roles library filter_plugins
 
 -create the ansible inventory file
 vim /ansible/amazon.inv
@@ -35,3 +38,14 @@ vim /ansible/amazon.inv
 [node]
 "node internal name"
 "node internal name"
+
+-create ansible playbook for install git
+---
+- hosts: all
+  remote_user: ec2-user
+  become: yes
+  become_method: sudo
+  tasks:
+    - yum: name=git state=present
+
+ansible-playbook -i amazon.inv installgit.yml
