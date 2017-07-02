@@ -29,14 +29,14 @@ vim /home/ec2-user/.ssh/authorized_keys
 ssh -i /home/ec2-user/id_rsa ec2-user@"internal dns name"
 
 -create the ansible inventory file
-´´´
+```
 vim /ansible/amazon.inv
 [master]
 "master internal name"
 [node]
 "node internal name"
 "node internal name"
-´´´
+```
 
 -create ansible playbook for install git from the file installgit.yml ind /ansible
 ansible-playbook -i amazon.inv installgit.yml
